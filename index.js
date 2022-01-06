@@ -13,7 +13,6 @@ dotenv.config({ path: './.env' });
 app.use(cors());
 app.set('port', 3000);
 
-
 app.listen(app.get('port'), () => {
     console.log('Server connected and listening port: ' + app.get('port'))
     // Listen to the previous port defined 
@@ -24,4 +23,6 @@ app.use(bodyParser.json({ limit: "20mb", extended: true })) //we are going to be
 app.use(bodyParser.urlencoded({ limit: "20mb", extended: true }))
 
 // ROUTES  
-app.use('/', productsRoutes);
+// app.use('/', productsRoutes);
+app.use(require('./routes/productsRoutes'))// por defecto node siempre llamara a /index.js
+
