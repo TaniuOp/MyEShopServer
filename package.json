@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm index.js",
@@ -12,10 +11,13 @@
   "author": "TaniuOp",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "helmet": "^5.0.1",
     "nodemon": "^2.0.15",
-    "pg": "^8.7.1"
+    "pg": "^8.7.1",
+    "router": "^1.3.6",
+    "sequelize": "^6.12.5"
   },
   "devDependencies": {
     "dotenv": "^10.0.0"
