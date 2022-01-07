@@ -23,6 +23,5 @@ app.use(bodyParser.json({ limit: "20mb", extended: true })) //we are going to be
 app.use(bodyParser.urlencoded({ limit: "20mb", extended: true }))
 
 // ROUTES  
-// app.use('/', productsRoutes);
 app.use(require('./routes/productsRoutes'))// por defecto node siempre llamara a /index.js
 

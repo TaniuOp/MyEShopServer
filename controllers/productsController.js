@@ -1,26 +1,8 @@
 const pool = require('../utils/pgdb');
 
-// const productsControl = {
+const productsControl = {
     // Get all products 
-    // getAllProducts: async (res) => {
-    //     let client;
-    //     try {
-    //         const conection = await pool.connect();
-    //         const allProducts = await conection.query(
-    //             'SELECT * FROM products'
-    //         )
-    //         const productsData = await allProducts.rows
-    //         console.log(productsData)
-    //     } catch (err) {
-    //         console.log(err);
-    //         throw err;
-    //     } finally {
-    //         client.release();
-    //     }
-    //     return productsData
-    // },
-
-    const getAllProducts = async () => {
+   getAllProducts:async () => {
         let client,result;
         try{
             client = await pool.connect(); // Espera a abrir conexion
@@ -35,9 +17,9 @@ const pool = require('../utils/pgdb');
             
         }
         return result
-    }
+    },
 
-const getProductByName = async (name) => {
+    getProductByName:async (name) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
@@ -52,9 +34,9 @@ const getProductByName = async (name) => {
         client.release();
     }
     return result
-}
+},
 
-const getProductByManufacturer = async (id) => {
+    getProductByManufacturer: async (id) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
@@ -72,9 +54,8 @@ const getProductByManufacturer = async (id) => {
         client.release();
     }
     return result
+}
 };
-
-
 
     // Find by name 
     // getProductsByName: async (name) => {
@@ -119,11 +100,11 @@ const getProductByManufacturer = async (id) => {
 // };
 
 
-const productsControl = {
-    getAllProducts,
-    getProductByName,
-    getProductByManufacturer
-}
+// const productsControl = {
+//     getAllProducts,
+//     getProductByName,
+//     getProductByManufacturer
+// }
 
 
 module.exports = productsControl;
