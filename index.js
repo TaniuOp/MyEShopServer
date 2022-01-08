@@ -1,8 +1,6 @@
 // Import basic elements required  
 const express = require('express');
 const app = express();
-const productsRoutes = require('./routes/productsRoutes');
-const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
