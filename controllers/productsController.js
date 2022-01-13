@@ -19,12 +19,12 @@ const productsControl = {
         return result
     },
 
-    getProductByName:async (name) => {
+    getProductByName:async (title) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(`SELECT * FROM products WHERE name =$1;`
-            , [name])
+        const data = await client.query(`SELECT * FROM products WHERE title =$1;`
+            , [title])
         result = data.rows
         console.log(result)
     } catch (err) {
@@ -56,55 +56,5 @@ const productsControl = {
     return result
 }
 };
-
-    // Find by name 
-    // getProductsByName: async (name) => {
-    //     let client;
-    //     try {
-    //         const conection = await pool.connect();
-    //         const productName = await conection.query(
-    //             'SELECT * FROM products WHERE name =$1;'
-    //             , [name])
-    //         const productData = await productName.rows
-    //         console.log(productData)
-    //     } catch (err) {
-    //         console.log(err);
-    //         throw err;
-    //     } finally {
-    //         client.release();
-    //     }
-    //     return productData
-    // },
-
-
-    // 
-    // getAllProducts: async (res) => {
-    //     try {
-    //         const conection = await pool.connect();
-    //         const allProducts = await conection.query(
-    //             'SELECT * FROM products'
-    //         )
-    //         const productsData = await allProducts.rows
-    //         console.log(productsData)
-    //         return productsData
-    //     } catch (e) {
-    //         console.log(e.message)
-    //     }
-    // }
-
-
-
-
-
-
-// };
-
-
-// const productsControl = {
-//     getAllProducts,
-//     getProductByName,
-//     getProductByManufacturer
-// }
-
 
 module.exports = productsControl;
