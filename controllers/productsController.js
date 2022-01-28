@@ -5,7 +5,7 @@ const productsControl = {
    getAllProducts:async () => {
         let client,result;
         try{
-            client = await pool.connect(); // Espera a abrir conexion
+            client = await pool.connect();
             const data = await client.query(`select * from products;`)
             result = data.rows
             console.log(result)
@@ -22,7 +22,7 @@ const productsControl = {
     getProductByName:async (title) => {
     let client, result;
     try {
-        client = await pool.connect(); // Espera a abrir conexion
+        client = await pool.connect(); 
         const data = await client.query(`SELECT * FROM products WHERE title =$1;`
             , [title])
         result = data.rows
@@ -39,7 +39,7 @@ const productsControl = {
     getProductByManufacturer: async (id) => {
     let client, result;
     try {
-        client = await pool.connect(); // Espera a abrir conexion
+        client = await pool.connect(); 
         const data = await client.query(`SELECT P.*, M.* FROM products as P
         INNER JOIN manufacturer as M
         on P.fk_id_manufacturer=M.id 
